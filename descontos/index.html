@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Calculadora de Descontos Online Grátis | Calcula Fácil</title>
+
+<meta name="description" content="Calculadora de descontos online e gratuita. Calcule o valor do desconto e o preço final de um produto de forma rápida e simples.">
+
+<meta name="robots" content="index, follow">
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f5f7fa;
+        color: #1f2937;
+    }
+
+    header {
+        background: #111827;
+        color: white;
+        padding: 18px 20px;
+        text-align: center;
+    }
+
+    header h1 {
+        margin: 0 0 8px;
+        font-size: 28px;
+    }
+
+    header p {
+        margin: 0;
+        color: #d1d5db;
+        font-size: 15px;
+    }
+
+    nav {
+        background: white;
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+        padding: 15px;
+    }
+
+    nav a {
+        color: #1f2937;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 0 15px;
+    }
+
+    nav a:hover {
+        text-decoration: underline;
+    }
+
+    main {
+        max-width: 1000px;
+        margin: 45px auto;
+        padding: 0 20px;
+    }
+
+    .intro {
+        text-align: center;
+        margin-bottom: 35px;
+    }
+
+    .intro h2 {
+        margin: 0 0 12px;
+        font-size: 34px;
+        color: #111827;
+    }
+
+    .intro p {
+        margin: 0;
+        color: #6b7280;
+        font-size: 17px;
+    }
+
+    .calculator {
+        background: white;
+        max-width: 600px;
+        margin: auto;
+        padding: 32px;
+        border-radius: 14px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .field {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+    }
+
+    input {
+        width: 100%;
+        padding: 14px;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        font-size: 16px;
+    }
+
+    input:focus {
+        outline: none;
+        border-color: #111827;
+    }
+
+    .buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 25px;
+    }
+
+    button {
+        border: none;
+        border-radius: 8px;
+        padding: 14px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        background: #111827;
+        color: white;
+    }
+
+    button:hover {
+        opacity: 0.9;
+    }
+
+    button.secondary {
+        background: #e5e7eb;
+        color: #111827;
+    }
+
+    .result {
+        display: none;
+        margin-top: 25px;
+        padding: 22px;
+        background: #f3f4f6;
+        border-radius: 10px;
+    }
+
+    .result-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    .result-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 10px 0;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    .result-row:last-child {
+        border-bottom: none;
+    }
+
+    .result-value {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .info {
+        max-width: 750px;
+        margin: 50px auto;
+        line-height: 1.7;
+    }
+
+    .info h2 {
+        color: #111827;
+        margin-top: 35px;
+    }
+
+    .info p {
+        color: #4b5563;
+    }
+
+    footer {
+        text-align: center;
+        padding: 35px 20px;
+        color: #6b7280;
+        font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+
+        .intro h2 {
+            font-size: 28px;
+        }
+
+        .calculator {
+            padding: 22px;
+        }
+
+        .buttons {
+            grid-template-columns: 1fr;
+        }
+
+        .result-row {
+            flex-direction: column;
+            gap: 5px;
+        }
+    }
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <h1>Calcula Fácil</h1>
+    <p>Calculadoras online simples, rápidas e gratuitas.</p>
+</header>
+
+<nav>
+    <a href="../">Início</a>
+    <a href="../iva/">IVA</a>
+    <a href="../percentagens/">Percentagens</a>
+    <a href="./">Descontos</a>
+</nav>
+
+<main>
+
+<div class="intro">
+
+    <h2>Calculadora de Descontos</h2>
+
+    <p>
+        Calcule o valor do desconto e o preço final de forma rápida e simples.
+    </p>
+
+</div>
+
+<div class="calculator">
+
+    <div class="field">
+
+        <label for="preco">
+            Preço original (€)
+        </label>
+
+        <input
+            type="number"
+            id="preco"
+            placeholder="Ex.: 100"
+            step="0.01"
+            min="0"
+        >
+
+    </div>
+
+    <div class="field">
+
+        <label for="desconto">
+            Desconto (%)
+        </label>
+
+        <input
+            type="number"
+            id="desconto"
+            placeholder="Ex.: 20"
+            step="0.01"
+            min="0"
+            max="100"
+        >
+
+    </div>
+
+    <div class="buttons">
+
+        <button onclick="calcularDesconto()">
+            Calcular desconto
+        </button>
+
+        <button
+            class="secondary"
+            onclick="limpar()"
+        >
+            Limpar
+        </button>
+
+    </div>
+
+    <div class="result" id="resultado">
+
+        <div class="result-title">
+            Resultado
+        </div>
+
+        <div class="result-row">
+
+            <span>
+                Valor do desconto
+            </span>
+
+            <span
+                class="result-value"
+                id="valorDesconto"
+            >
+                -
+            </span>
+
+        </div>
+
+        <div class="result-row">
+
+            <span>
+                Preço final
+            </span>
+
+            <span
+                class="result-value"
+                id="precoFinal"
+            >
+                -
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="info">
+
+    <h2>Como calcular um desconto?</h2>
+
+    <p>
+        Para calcular um desconto, introduza o preço original do produto
+        e a percentagem de desconto.
+    </p>
+
+    <p>
+        Por exemplo, se um produto custa 100 € e tem um desconto de 20%,
+        o desconto corresponde a 20 € e o preço final é 80 €.
+    </p>
+
+    <h2>Fórmula para calcular um desconto</h2>
+
+    <p>
+        A fórmula utilizada para calcular o valor do desconto é:
+    </p>
+
+    <p>
+        <strong>
+            Preço × Desconto ÷ 100
+        </strong>
+    </p>
+
+    <p>
+        Para calcular o preço final:
+    </p>
+
+    <p>
+        <strong>
+            Preço - Valor do desconto
+        </strong>
+    </p>
+
+</div>
+
+</main>
+
+<footer>
+    © 2026 Calcula Fácil
+</footer>
+
+<script>
+
+    function formatar(valor) {
+
+        return valor.toLocaleString("pt-PT", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        }) + " €";
+
+    }
+
+
+    function calcularDesconto() {
+
+        const preco =
+            parseFloat(
+                document.getElementById("preco").value
+            );
+
+        const desconto =
+            parseFloat(
+                document.getElementById("desconto").value
+            );
+
+        if (
+            isNaN(preco) ||
+            isNaN(desconto) ||
+            preco < 0 ||
+            desconto < 0 ||
+            desconto > 100
+        ) {
+
+            alert("Introduza um preço válido e um desconto entre 0% e 100%.");
+
+            return;
+        }
+
+        const valorDesconto =
+            preco * (desconto / 100);
+
+        const precoFinal =
+            preco - valorDesconto;
+
+        document.getElementById("valorDesconto").textContent =
+            formatar(valorDesconto);
+
+        document.getElementById("precoFinal").textContent =
+            formatar(precoFinal);
+
+        document.getElementById("resultado").style.display =
+            "block";
+
+    }
+
+
+    function limpar() {
+
+        document.getElementById("preco").value = "";
+
+        document.getElementById("desconto").value = "";
+
+        document.getElementById("resultado").style.display =
+            "none";
+
+    }
+
+</script>
+
+</body>
+</html>
