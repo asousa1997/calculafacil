@@ -1,33 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-    <url>
-        <loc>https://asousa1997.github.io/calculafacil/</loc>
-    </url>
-
-    <url>
-        <loc>https://asousa1997.github.io/calculafacil/iva/</loc>
-    </url>
-
-    <url>
-        <loc>https://asousa1997.github.io/calculafacil/percentagens/</loc>
-    </url>
-
-    <url>
-        <loc>https://asousa1997.github.io/calculafacil/descontos/</loc>
-    </url>
-
-    <url>
-        <loc>https://asousa1997.github.io/calculafacil/sobre/</loc>
-    </url>
-
-    <url>
-        <loc>https://asousa1997.github.io/calculafacil/contacto/</loc>
-    </url>
-
-    <url>
-        <loc>https://asousa1997.github.io/calculafacil/privacidade/</loc>
-    </url>
-
+  <url>
+    <loc>https://asousa1997.github.io/calculafacil/</loc>
+  </url>
+  <url>
+    <loc>https://asousa1997.github.io/calculafacil/iva/</loc>
+  </url>
+  <url>
+    <loc>https://asousa1997.github.io/calculafacil/percentagens/</loc>
+  </url>
+  <url>
+    <loc>https://asousa1997.github.io/calculafacil/descontos/</loc>
+  </url>
+  <url>
+    <loc>https://asousa1997.github.io/calculafacil/sobre/</loc>
+  </url>
+  <url>
+    <loc>https://asousa1997.github.io/calculafacil/contacto/</loc>
+  </url>
+  <url>
+    <loc>https://asousa1997.github.io/calculafacil/privacidade/</loc>
+  </url>
 </urlset>
