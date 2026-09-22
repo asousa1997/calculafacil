@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Calculadora de IVA Online Grátis | Calcula Fácil</title>
-    <meta name="description" content="Calculadora de IVA online grátis. Adicione ou retire IVA a qualquer valor de forma rápida e simples.">
+
+    <meta name="description" content="Calculadora de IVA online gratuita. Calcule rapidamente o IVA a adicionar ou retirar de um valor, com taxas de 23%, 13% e 6%.">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://asousa1997.github.io/calculafacil/iva/">
 
     <style>
         * {
@@ -14,16 +19,15 @@
 
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
             background: #f5f7fa;
-            color: #222;
+            color: #111827;
         }
 
         header {
-            background: #1f2937;
-            color: white;
             text-align: center;
-            padding: 35px 20px;
+            padding: 35px 20px 20px;
         }
 
         header h1 {
@@ -33,21 +37,20 @@
 
         header p {
             margin: 0;
-            color: #d1d5db;
+            color: #6b7280;
         }
 
         nav {
-            background: white;
-            border-bottom: 1px solid #ddd;
             text-align: center;
-            padding: 15px;
+            margin-bottom: 30px;
         }
 
         nav a {
-            color: #1f2937;
+            display: inline-block;
+            margin: 5px 8px;
+            color: #2563eb;
             text-decoration: none;
             font-weight: bold;
-            margin: 0 15px;
         }
 
         nav a:hover {
@@ -55,82 +58,83 @@
         }
 
         main {
-            max-width: 600px;
-            margin: 40px auto;
-            padding: 0 20px;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
         }
 
-        .calculadora {
+        .calculator,
+        .info {
             background: white;
-            padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            margin-bottom: 25px;
+        }
+
+        .calculator h2,
+        .info h2 {
+            margin-top: 0;
         }
 
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-top: 15px;
+            margin-bottom: 6px;
             font-weight: bold;
         }
 
         input,
-        select {
+        select,
+        button {
             width: 100%;
             padding: 12px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 7px;
             font-size: 16px;
+            border-radius: 8px;
+        }
+
+        input,
+        select {
+            border: 1px solid #d1d5db;
         }
 
         button {
-            width: 100%;
-            padding: 13px;
-            margin-bottom: 10px;
+            margin-top: 20px;
             border: none;
-            border-radius: 7px;
-            background: #1f2937;
+            background: #2563eb;
             color: white;
-            font-size: 16px;
             font-weight: bold;
             cursor: pointer;
         }
 
         button:hover {
-            background: #374151;
+            background: #1d4ed8;
         }
 
         .resultado {
-            margin-top: 25px;
-            padding: 20px;
-            background: #f5f7fa;
+            margin-top: 20px;
+            padding: 15px;
+            background: #f3f4f6;
             border-radius: 8px;
-            display: none;
+            line-height: 1.7;
         }
 
-        .resultado p {
-            display: flex;
-            justify-content: space-between;
-            margin: 10px 0;
-        }
-
-        .resultado .total {
-            font-size: 20px;
-            font-weight: bold;
-            border-top: 1px solid #ddd;
-            padding-top: 12px;
-        }
-
-        .texto {
-            margin-top: 35px;
-            line-height: 1.6;
+        .info p {
+            color: #4b5563;
+            line-height: 1.7;
         }
 
         footer {
             text-align: center;
-            padding: 30px 20px;
-            color: #777;
+            padding: 25px 20px;
+            color: #6b7280;
             font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 27px;
+            }
         }
     </style>
 </head>
@@ -144,20 +148,22 @@
 
 <nav>
     <a href="../">Início</a>
-    <a href="./">IVA</a>
+    <a href="../iva/">IVA</a>
     <a href="../percentagens/">Percentagens</a>
     <a href="../descontos/">Descontos</a>
-</nav> 
+</nav>
 
 <main>
 
-    <div class="calculadora">
+    <section class="calculator">
+
+        <h2>Calcular IVA</h2>
 
         <label for="valor">Valor (€)</label>
         <input type="number" id="valor" placeholder="Ex.: 100" step="0.01">
 
-        <label for="iva">Taxa de IVA</label>
-        <select id="iva">
+        <label for="taxa">Taxa de IVA</label>
+        <select id="taxa">
             <option value="23">23%</option>
             <option value="13">13%</option>
             <option value="6">6%</option>
@@ -167,88 +173,83 @@
         <button onclick="retirarIVA()">Retirar IVA</button>
 
         <div class="resultado" id="resultado">
-            <p>
-                <span>Valor sem IVA:</span>
-                <strong id="valorSemIVA">0,00 €</strong>
-            </p>
-
-            <p>
-                <span>IVA:</span>
-                <strong id="valorIVA">0,00 €</strong>
-            </p>
-
-            <p class="total">
-                <span>Total:</span>
-                <strong id="valorTotal">0,00 €</strong>
-            </p>
+            Introduza um valor para começar.
         </div>
 
-    </div>
+    </section>
 
-    <div class="texto">
-        <h2>Calculadora de IVA Online</h2>
+    <section class="info">
+
+        <h2>Como calcular o IVA?</h2>
 
         <p>
-            Com esta calculadora pode adicionar ou retirar IVA a qualquer valor
-            de forma simples e rápida.
+            Esta calculadora de IVA permite calcular rapidamente o valor
+            do imposto a adicionar a um preço ou retirar de um valor que
+            já inclui IVA.
         </p>
 
         <p>
-            Escolha a taxa de IVA pretendida, introduza o valor e selecione
-            se pretende adicionar ou retirar o IVA.
+            Pode escolher entre as taxas de IVA de 23%, 13% e 6% e obter
+            imediatamente o valor do IVA e o preço final.
         </p>
-    </div>
+
+        <h2>Calculadora de IVA online</h2>
+
+        <p>
+            A ferramenta é gratuita e funciona diretamente no navegador,
+            tanto no computador como no telemóvel. Não precisa de instalar
+            nenhum programa.
+        </p>
+
+    </section>
 
 </main>
 
 <footer>
-    © 2026 Calcula Fácil — Calculadoras Online Grátis
+    © 2026 Calcula Fácil
 </footer>
 
 <script>
-    function formatar(valor) {
-        return valor.toLocaleString('pt-PT', {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
-        }) + ' €';
+function obterValores() {
+    const valor = parseFloat(document.getElementById("valor").value);
+    const taxa = parseFloat(document.getElementById("taxa").value);
+
+    if (isNaN(valor) || valor < 0) {
+        document.getElementById("resultado").innerHTML =
+            "Introduza um valor válido.";
+        return null;
     }
 
-    function adicionarIVA() {
-        const valor = parseFloat(document.getElementById('valor').value);
-        const taxa = parseFloat(document.getElementById('iva').value);
+    return { valor, taxa };
+}
 
-        if (isNaN(valor) || valor < 0) {
-            alert('Introduza um valor válido.');
-            return;
-        }
+function adicionarIVA() {
+    const dados = obterValores();
 
-        const iva = valor * (taxa / 100);
-        const total = valor + iva;
+    if (!dados) return;
 
-        mostrarResultado(valor, iva, total);
-    }
+    const iva = dados.valor * dados.taxa / 100;
+    const total = dados.valor + iva;
 
-    function retirarIVA() {
-        const valor = parseFloat(document.getElementById('valor').value);
-        const taxa = parseFloat(document.getElementById('iva').value);
+    document.getElementById("resultado").innerHTML =
+        "<strong>Valor sem IVA:</strong> " + dados.valor.toFixed(2) + " €<br>" +
+        "<strong>IVA (" + dados.taxa + "%):</strong> " + iva.toFixed(2) + " €<br>" +
+        "<strong>Total com IVA:</strong> " + total.toFixed(2) + " €";
+}
 
-        if (isNaN(valor) || valor < 0) {
-            alert('Introduza um valor válido.');
-            return;
-        }
+function retirarIVA() {
+    const dados = obterValores();
 
-        const valorSemIVA = valor / (1 + taxa / 100);
-        const iva = valor - valorSemIVA;
+    if (!dados) return;
 
-        mostrarResultado(valorSemIVA, iva, valor);
-    }
+    const valorSemIVA = dados.valor / (1 + dados.taxa / 100);
+    const iva = dados.valor - valorSemIVA;
 
-    function mostrarResultado(valorSemIVA, iva, total) {
-        document.getElementById('valorSemIVA').textContent = formatar(valorSemIVA);
-        document.getElementById('valorIVA').textContent = formatar(iva);
-        document.getElementById('valorTotal').textContent = formatar(total);
-        document.getElementById('resultado').style.display = 'block';
-    }
+    document.getElementById("resultado").innerHTML =
+        "<strong>Valor com IVA:</strong> " + dados.valor.toFixed(2) + " €<br>" +
+        "<strong>IVA (" + dados.taxa + "%):</strong> " + iva.toFixed(2) + " €<br>" +
+        "<strong>Valor sem IVA:</strong> " + valorSemIVA.toFixed(2) + " €";
+}
 </script>
 
 </body>
