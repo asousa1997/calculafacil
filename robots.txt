@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://asousa1997.github.io/calculafacil/sitemap.xml
