@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Calculadora de IVA Online Grátis | Calcula Fácil</title>
+    <meta name="description" content="Calculadora de IVA online grátis. Adicione ou retire IVA a qualquer valor de forma rápida e simples.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            color: #222;
+        }
+
+        header {
+            background: #1f2937;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        header h1 {
+            margin: 0 0 10px;
+            font-size: 32px;
+        }
+
+        header p {
+            margin: 0;
+            color: #d1d5db;
+        }
+
+        nav {
+            background: white;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+            padding: 15px;
+        }
+
+        nav a {
+            color: #1f2937;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 15px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .calculadora {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 7px;
+            background: #1f2937;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #374151;
+        }
+
+        .resultado {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f5f7fa;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .resultado p {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+
+        .resultado .total {
+            font-size: 20px;
+            font-weight: bold;
+            border-top: 1px solid #ddd;
+            padding-top: 12px;
+        }
+
+        .texto {
+            margin-top: 35px;
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #777;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Calculadora de IVA</h1>
+    <p>Calcule o IVA de forma rápida e gratuita.</p>
+</header>
+
+<nav>
+    <a href="../">Início</a>
+    <a href="./">IVA</a>
+    <a href="../percentagens/">Percentagens</a>
+</nav>
+
+<main>
+
+    <div class="calculadora">
+
+        <label for="valor">Valor (€)</label>
+        <input type="number" id="valor" placeholder="Ex.: 100" step="0.01">
+
+        <label for="iva">Taxa de IVA</label>
+        <select id="iva">
+            <option value="23">23%</option>
+            <option value="13">13%</option>
+            <option value="6">6%</option>
+        </select>
+
+        <button onclick="adicionarIVA()">Adicionar IVA</button>
+        <button onclick="retirarIVA()">Retirar IVA</button>
+
+        <div class="resultado" id="resultado">
+            <p>
+                <span>Valor sem IVA:</span>
+                <strong id="valorSemIVA">0,00 €</strong>
+            </p>
+
+            <p>
+                <span>IVA:</span>
+                <strong id="valorIVA">0,00 €</strong>
+            </p>
+
+            <p class="total">
+                <span>Total:</span>
+                <strong id="valorTotal">0,00 €</strong>
+            </p>
+        </div>
+
+    </div>
+
+    <div class="texto">
+        <h2>Calculadora de IVA Online</h2>
+
+        <p>
+            Com esta calculadora pode adicionar ou retirar IVA a qualquer valor
+            de forma simples e rápida.
+        </p>
+
+        <p>
+            Escolha a taxa de IVA pretendida, introduza o valor e selecione
+            se pretende adicionar ou retirar o IVA.
+        </p>
+    </div>
+
+</main>
+
+<footer>
+    © 2026 Calcula Fácil — Calculadoras Online Grátis
+</footer>
+
+<script>
+    function formatar(valor) {
+        return valor.toLocaleString('pt-PT', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        }) + ' €';
+    }
+
+    function adicionarIVA() {
+        const valor = parseFloat(document.getElementById('valor').value);
+        const taxa = parseFloat(document.getElementById('iva').value);
+
+        if (isNaN(valor) || valor < 0) {
+            alert('Introduza um valor válido.');
+            return;
+        }
+
+        const iva = valor * (taxa / 100);
+        const total = valor + iva;
+
+        mostrarResultado(valor, iva, total);
+    }
+
+    function retirarIVA() {
+        const valor = parseFloat(document.getElementById('valor').value);
+        const taxa = parseFloat(document.getElementById('iva').value);
+
+        if (isNaN(valor) || valor < 0) {
+            alert('Introduza um valor válido.');
+            return;
+        }
+
+        const valorSemIVA = valor / (1 + taxa / 100);
+        const iva = valor - valorSemIVA;
+
+        mostrarResultado(valorSemIVA, iva, valor);
+    }
+
+    function mostrarResultado(valorSemIVA, iva, total) {
+        document.getElementById('valorSemIVA').textContent = formatar(valorSemIVA);
+        document.getElementById('valorIVA').textContent = formatar(iva);
+        document.getElementById('valorTotal').textContent = formatar(total);
+        document.getElementById('resultado').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
