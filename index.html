@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Calcula Fácil — Calculadoras Online Grátis</title>
-    <meta name="description" content="Calculadoras online grátis e fáceis de usar. IVA, percentagens e outras ferramentas úteis.">
+    <meta name="description" content="Calculadoras online grátis, simples e rápidas. Calcule IVA, percentagens e muito mais.">
 
     <style>
         * {
@@ -23,17 +23,18 @@
             background: #1f2937;
             color: white;
             text-align: center;
-            padding: 35px 20px;
+            padding: 45px 20px;
         }
 
         header h1 {
             margin: 0 0 10px;
-            font-size: 36px;
+            font-size: 38px;
         }
 
         header p {
             margin: 0;
             color: #d1d5db;
+            font-size: 17px;
         }
 
         nav {
@@ -56,7 +57,7 @@
 
         main {
             max-width: 1000px;
-            margin: 40px auto;
+            margin: 45px auto;
             padding: 0 20px;
         }
 
@@ -67,36 +68,33 @@
 
         .calculadoras {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
         }
 
         .card {
             background: white;
             border-radius: 12px;
-            padding: 25px;
+            padding: 30px;
             text-align: center;
             box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
-            transition: transform 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-3px);
         }
 
         .card h3 {
             margin-top: 0;
+            font-size: 22px;
         }
 
         .card p {
             color: #666;
-            line-height: 1.5;
+            line-height: 1.6;
+            min-height: 50px;
         }
 
         .botao {
             display: inline-block;
-            margin-top: 10px;
-            padding: 12px 20px;
+            margin-top: 15px;
+            padding: 12px 22px;
             background: #1f2937;
             color: white;
             text-decoration: none;
@@ -110,7 +108,7 @@
 
         footer {
             text-align: center;
-            padding: 30px 20px;
+            padding: 40px 20px;
             color: #777;
             font-size: 14px;
         }
@@ -126,6 +124,7 @@
 
 <nav>
     <a href="./">Início</a>
+    <a href="./iva/">IVA</a>
     <a href="./percentagens/">Percentagens</a>
 </nav>
 
@@ -137,17 +136,26 @@
 
         <div class="card">
             <h3>Calculadora de IVA</h3>
+
             <p>
-                Adiciona ou retira IVA a qualquer valor de forma rápida e simples.
+                Adicione ou retire IVA a qualquer valor de forma rápida e simples.
             </p>
+
+            <a class="botao" href="./iva/">
+                Calcular IVA
+            </a>
         </div>
 
         <div class="card">
             <h3>Calculadora de Percentagens</h3>
+
             <p>
-                Calcula percentagens, aumentos, reduções e diferenças entre valores.
+                Calcule percentagens, aumentos, reduções e diferenças entre valores.
             </p>
-            <a class="botao" href="./percentagens/">Calcular Percentagens</a>
+
+            <a class="botao" href="./percentagens/">
+                Calcular Percentagens
+            </a>
         </div>
 
     </div>
